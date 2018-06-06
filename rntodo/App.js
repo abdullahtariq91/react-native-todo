@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, AppRegistry, Image } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image, TextInput } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -19,13 +19,35 @@ class Blink extends Component {
       this.setState(previousState => {
         return { isShowingText: !previousState.isShowingText };
       });
-    }, 10000);
+    }, 1000);
   }
 
   render() {
     let display = this.state.isShowingText ? this.props.text : ' ';
     return (
       <Text>{display}</Text>
+    );
+  }
+}
+
+class PizzaTranslator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
+  render() {
+    return (
+      <View style={{padding: 10}}>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+        </Text>
+      </View>
     );
   }
 }
@@ -37,18 +59,15 @@ export default class LotsOfGreetings extends Component {
     };
     return (
       <View style={styles.container}>
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Greeting name='Rexxar' number='1'/>
-        <Greeting name='Jaina' number='2'/>
-        <Greeting name='Valeera' number='3' />
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
-        <Text style={styles.red}>just red</Text>
-        <Text style={styles.bigblue}>just bigblue</Text>
-        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
-        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}}>
+         <Greeting name='Abdullah' number='1'></Greeting>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'skyblue'}}>
+          <Blink text='Hello, again and again'/>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'steelblue'}}>
+         <PizzaTranslator></PizzaTranslator>
+        </View>
       </View>
     );
   }
@@ -57,7 +76,7 @@ export default class LotsOfGreetings extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -69,4 +88,7 @@ const styles = StyleSheet.create({
   red: {
     color: 'red',
   },
+  backgroundbox: {
+    backgroundColor: 'steelblue'
+  }
 });
