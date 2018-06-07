@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, AppRegistry, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image, TextInput, Button, Alert } from 'react-native';
 
 class Greeting extends Component {
   render() {
     return (
-      <Text>Hello {this.props.name}! You are  {this.props.number}!</Text>
+      <Text style={{height: 40, fontSize: 30}}>Hello {this.props.name}! You are cute!</Text>
     );
   }
 }
@@ -40,7 +40,7 @@ class PizzaTranslator extends Component {
     return (
       <View style={{padding: 10}}>
         <TextInput
-          style={{height: 40}}
+          style={{height: 40, fontSize: 30}}
           placeholder="Type here to translate!"
           onChangeText={(text) => this.setState({text})}
         />
@@ -62,11 +62,16 @@ export default class LotsOfGreetings extends Component {
         <View style={{flex: 1, backgroundColor: 'powderblue'}}>
          <Greeting name='Abdullah' number='1'></Greeting>
         </View>
-        <View style={{flex: 1, backgroundColor: 'skyblue'}}>
-          <Blink text='Hello, again and again'/>
+        <View style={{flex: 1, width: 200, backgroundColor: 'skyblue'}}>
+          <PizzaTranslator></PizzaTranslator>
         </View>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}}>
-         <PizzaTranslator></PizzaTranslator>
+        <View style={{flex:1, backgroundColor: 'steelblue'}}>
+          <Button
+            onPress={() => {
+              Alert.alert('You tapped the button!');
+            }}
+            title="Press Me"
+          />
         </View>
       </View>
     );
