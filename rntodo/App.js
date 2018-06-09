@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, AppRegistry, Image, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image, TextInput, Button, Alert, TouchableHighlight } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -66,12 +66,14 @@ export default class LotsOfGreetings extends Component {
           <PizzaTranslator></PizzaTranslator>
         </View>
         <View style={{flex:1, backgroundColor: 'steelblue'}}>
-          <Button
+          <TouchableHighlight 
+            style={styles.button}
             onPress={() => {
               Alert.alert('You tapped the button!');
             }}
-            title="Press Me"
-          />
+          >
+            <Text>Press Me!</Text>
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -95,5 +97,10 @@ const styles = StyleSheet.create({
   },
   backgroundbox: {
     backgroundColor: 'steelblue'
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
   }
 });
