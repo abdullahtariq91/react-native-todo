@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 export default class SwiperClass extends Component {
   render(){
     return (
-      <Swiper style={styles.wrapper} showsButtons={true}>
+      <Swiper style={styles.wrapper} showsButtons={false} loop={false} onIndexChanged={this.someFunction(index)}>
         <View style={styles.slide1}>
           <Text style={styles.text}>Hello Swiper</Text>
         </View>
