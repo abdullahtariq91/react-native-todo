@@ -36,13 +36,13 @@ export default class SwiperClass extends Component {
         this.setState({backgroundColor: 'red'});
         break;
       case SWIPE_DOWN:
-        this.setState({backgroundColor: 'green'});
+        this.setState({backgroundColor: '#92BBD9'});
         break;
       case SWIPE_LEFT:
-        this.setState({backgroundColor: 'blue'});
+        this.setState({backgroundColor: '#97CAE5'});
         break;
       case SWIPE_RIGHT:
-        this.setState({backgroundColor: 'yellow'});
+        this.setState({backgroundColor: '#9DD6EB'});
         break;
     }
   }
